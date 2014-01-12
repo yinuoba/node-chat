@@ -17,7 +17,6 @@ var io = require('socket.io').listen(server);
 
 var config = require('./config')[ENVIROMENT];
 
-var routes = require('./routes');
 var log = require('./commonjs/log');
 
 var logger = log.logger;
@@ -37,6 +36,9 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(app.router);
+
+var routes = require('./routes');
+routes(app);
 
 // 配置socket.io
 io.configure(ENVIROMENT, function(){
