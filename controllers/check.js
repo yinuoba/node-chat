@@ -3,11 +3,11 @@
  */
 
 var chatTool = require('../commonjs/chatTool.js');
+var config = require('../config')[ENVIROMENT];
 
 exports.index = function(req, res) {
 	var IPv4 = chatTool.getIPv4ByName('eth0');
-	//var port = config[ENVIROMENT].port;
-	var port = 11223;
+	var port = config.port;
 	res.render(
 		'check/check', {
 			title: 'websocket服务器检测',
