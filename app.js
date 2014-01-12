@@ -5,11 +5,13 @@
 
 global.ENVIROMENT = 'development';
 
+var express = require('express');
 var http = require('http');
 var path = require('path');
 var fs = require('fs');
 
-var app = require('express')();
+var app = express();
+
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 
@@ -25,9 +27,8 @@ logger.setLevel(config["log_level"]);
 log.use(app);
 
 app.set('port', config["port"]);
-app.set('view engine', 'html');
+app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-app.register('.html', require('ejs'));
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.logger('dev'));
@@ -37,7 +38,7 @@ app.use(express.methodOverride());
 app.use(app.router);
 
 // 配置socket.io
-io.configure(EVN_NAME, function(){
+io.configure(ENVIROMENT, function(){
   config.socketSetting(io);
 });
 
