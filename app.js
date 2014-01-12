@@ -27,7 +27,8 @@ log.use(app);
 
 app.use(express.favicon());
 app.set('port', config["port"]);
-app.set('view engine', 'ejs');
+app.engine('.html', require('ejs').__express);
+app.set('view engine', 'html');
 app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static(path.join(__dirname, 'public')));
