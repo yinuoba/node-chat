@@ -26,6 +26,7 @@ logger.setLevel(config["log_level"]);
 // 配置日志
 log.use(app);
 
+app.use(express.favicon());
 app.set('port', config["port"]);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
