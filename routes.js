@@ -5,7 +5,6 @@
 var check = require('./controllers/check');
 
 module.exports = function(app) {
-	console.info(app);
 	// 首页
   app.get('/check', check.index);
 };

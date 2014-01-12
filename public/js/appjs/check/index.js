@@ -1,4 +1,4 @@
-window.onload = function() {
+$(function(){
   var socket = null;
   var linkText = document.getElementById('linkText');
   var linkBid = document.getElementById('linkBid');
@@ -17,4 +17,4 @@ window.onload = function() {
       });
     }
   }
-}
+});
