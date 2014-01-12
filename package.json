@@ -1,0 +1,29 @@
+{
+  "name": "node-chat",
+  "description": "A chat system by nodeJs",
+  "author": "Hoogle<zeng.xianghu@hotmail.com> and veian<q.787583174@gmail.com>",
+  "version": "0.0.1",
+  "main": "app.js",
+  "private": true,
+  "keywords": [
+    "express",
+    "socket",
+    "log4j",
+    "node-chat",
+    "node"
+  ],
+  "scripts": {
+    "install": "npm install",
+    "start": "node app.js"
+  },
+  "repository": "https://github.com/yinuoba/node-chat.git",
+  "engines": {
+    "node": ">=0.8"
+  },
+  "dependencies": {
+    "express": "3.4.7",
+    "socket.io": "0.9.16",
+    "log4js": "0.6.9",
+    "ejs": "*"
+  }
+}
