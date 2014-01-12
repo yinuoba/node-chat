@@ -7,7 +7,7 @@ var config = require('../config')[ENVIROMENT];
 var logger = require('../commonjs/log').logger;
 
 exports.index = function(req, res) {
-	var IPv4 = chatTool.getIPv4ByName('eth0');
+	var IPv4 = chatTool.getIPv4ByName('eth0') || 'localhost';
 	var port = config.port;
 	res.render(
 		'check/check', {

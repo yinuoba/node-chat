@@ -1,11 +1,12 @@
 var os = require('os');
 var ifaces = os.networkInterfaces();
-
+// console.info(ifaces);
 module.exports = {
   //获取本机所有的IPv4
   getIPv4: function(){
     var ipArr = [];
     for (var dev in ifaces) {
+      // console.log(dev);
       var alias = 0;
       ifaces[dev].forEach(function(details){
         if (details.family == 'IPv4') {
