@@ -37,7 +37,7 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(app.router);
-
+routes(app);
 // 配置socket.io
 io.configure(ENVIROMENT, function(){
   config.socketSetting(io);
