@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= title %></title>
+		<link rel='stylesheet' href='/stylesheets/style.css' />
+	</head>
+	<body>
+		<h1><%= title %></h1>
+		<% if (success) { %>
+			<div class="success" style="color:blue;"><%= success %></div>
+		<% } %>
+		<% if (error) { %>
+			<div class="error" style="color:red;"><%= error %></div>
+		<% } %>
+		<form method="post">
+			<label for="name">用户名：</label>
+			<input type="text" name="name" />
+			<label for="password">密码：</label>
+			<input type="password" name="password" />
+			<label for="password">确认密码：</label>
+			<input type="password" name="password-repeat" />
+			<label for="email">邮箱：</label>
+			<input type="text" name="email">
+			<input type="submit" value="注册" />
+		</form>
+	</body>
+</html>
