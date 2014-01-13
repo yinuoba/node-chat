@@ -3,6 +3,7 @@
  */
 
 var check = require('./controllers/check');
+var message = require('./controllers//message');
 
 module.exports = function(app) {
 	// 首页
