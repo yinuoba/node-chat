@@ -68,6 +68,8 @@ exports.reg = function (req, res) {
  * 登录
  */
 exports.login = function (req, res) {
+	var name, md5, password;
+	
 	if(req.method === 'GET') {
 		res.render('user/login', {
 			title: '登录',
@@ -76,6 +78,32 @@ exports.login = function (req, res) {
 			error: req.flash('error').toString()
 		});
 	} else if(req.method === 'POST') {
-		
+		name = req.body.name;
+		md5 = crypto.createHash('md5');
+		password = md5.update(req.body.password).digest('hex');
+		User.get(name, function (err, user) {
+			if(!user) {
+				req.flash('error', '用户不存在！');
+				return res.redirect('/login');
+			}
+			
+			if(user.password !== password) {
+				req.flash('error', '密码错误！');
+				return res.redirect('/login');
+			}
+			
+			req.session.user = user;
+			req.flash('success', '登录成功！');
+			res.redirect('/');
+		});
 	}
+};
+
+/**
+ * 退出登录
+ */
+exports.logout = function (req, res) {
+	req.session.user = null;
+	req.flash('success', '登出成功！');
+	res.redirect('/');
 };

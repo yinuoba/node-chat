@@ -18,7 +18,7 @@ module.exports = function(app) {
 			error: req.flash('error').toString()
 		});
 	});
-	
+
 	/**
 	 * 注册
 	 */
@@ -39,6 +39,10 @@ module.exports = function(app) {
 	 */
 	app.post('/login', user.login);
 	
+	/**
+	 * 退出登录
+	 */
+	app.get('/logout', user.logout);
 	/**
 	 * Socket.io
 	 */

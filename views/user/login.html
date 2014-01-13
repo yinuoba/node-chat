@@ -6,6 +6,12 @@
 	</head>
 	<body>
 		<h1><%= title %></h1>
+		<% if (success) { %>
+			<div class="success" style="color:blue;"><%= success %></div>
+		<% } %>
+		<% if (error) { %>
+			<div class="error" style="color:red;"><%= error %></div>
+		<% } %>
 		<form method="post">
 			<label for="name">用户名：</label>
 			<input type="text" name="name" />
