@@ -13,7 +13,6 @@
     "node"
   ],
   "scripts": {
-    "install": "npm install",
     "start": "node app.js"
   },
   "repository": "https://github.com/yinuoba/node-chat.git",
@@ -24,6 +23,9 @@
     "express": "3.4.7",
     "socket.io": "0.9.15",
     "log4js": "0.6.9",
-    "ejs": "*"
+    "ejs": "*",
+    "mongodb": "*",
+    "connect-mongo": "*",
+    "connect-flash": "*"
   }
 }

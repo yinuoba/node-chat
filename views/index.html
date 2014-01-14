@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>这是首页</title>
+		<link rel='stylesheet' href='/stylesheets/style.css' />
+	</head>
+	<body>
+		<h1>这是首页</h1>
+		<p>Welcome to 这是首页</p>
+		<% if(user) { %>
+			<span><%= user.name %></span>
+			<a href="/logout" title="退出登录">退出登录</a>
+		<% } else { %>
+			<a href="/reg" title="注册">注册</a>
+			<a href="/login" title="登录">登录</a>
+		<% } %>
+  </body>
+</html>

@@ -6,12 +6,18 @@ module.exports = {
 	"development": {
 		"port": 11223,
 		"log_level": "INFO",
-		"socketSetting": devSocketSetting
+		"socketSetting": devSocketSetting,
+		"cookieSecret": "node-chat",
+		"db": 'node-chat',
+		"host": 'localhost'
 	},
 	"product": {
 		"port": 11223,
 		"log_level": "ERROR",
-		"socketSetting": proSocketSetting
+		"socketSetting": proSocketSetting,
+		"cookieSecret": "node-chat",
+		"db": 'node-chat',
+		"host": 'localhost'
 	}
 };
 
