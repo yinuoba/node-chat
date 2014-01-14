@@ -38,6 +38,18 @@ module.exports = function(app) {
 	 * 退出登录
 	 */
 	app.get('/logout', user.logout);
+	
+	/**
+	 * 当前登录用户的个人中心
+	 */
+	app.get('/u', user.userCenter);
+	
+	/**
+	 * 用户个人中心
+	 */
+	app.get('/u/:id', user.userCenter);
+	
+	
 	/**
 	 * Socket.io
 	 */

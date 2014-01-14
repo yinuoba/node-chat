@@ -45,10 +45,12 @@ User.prototype.save = function (callback) {
 /**
  * 查询给定名字的用户
  */
-User.get = function (name, callback) {
+User.get = function (obj, callback) {
 	mongodb.open(function (err, db) {
 		if(err) return callback(err);
-		
+		if(obj._id) {
+			obj._id = require('mongodb').ObjectID(obj._id);
+		}
 		// 读取 users
 		db.collection('users', function (err, collection) {
 			if(err) {
@@ -56,10 +58,12 @@ User.get = function (name, callback) {
 				return callback(err);
 			}
 			
-			collection.findOne({name: name}, function (err, user) {
+			collection.findOne(obj, function (err, user) {
 				mongodb.close();
 				if(err) return callback(err);
-				
+				console.log(obj);
+				console.log('modules ==========');
+				console.log(user);
 				callback(null, user); // 成功
 			});
 		});

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>个人中心</title>
+		<link rel='stylesheet' href='/stylesheets/style.css' />
+	</head>
+	<body>
+		<h1>个人中心</h1>
+		<% if (success) { %>
+			<div class="success" style="color:blue;"><%= success %></div>
+		<% } %>
+		<% if (error) { %>
+			<div class="error" style="color:red;"><%= error %></div>
+		<% } %>
+		
+		<% if (user) { %>
+			<span>用户名：</span><a href="/u/<%= user._id %>" title="<%= user.name %>"><%= user.name %></a>
+		<% } %>
+	</body>
+</html>

@@ -81,7 +81,7 @@ exports.login = function (req, res) {
 		name = req.body.name;
 		md5 = crypto.createHash('md5');
 		password = md5.update(req.body.password).digest('hex');
-		User.get(name, function (err, user) {
+		User.get({name: name}, function (err, user) {
 			if(!user) {
 				req.flash('error', '用户不存在！');
 				return res.redirect('/login');
@@ -106,4 +106,31 @@ exports.logout = function (req, res) {
 	req.session.user = null;
 	req.flash('success', '登出成功！');
 	res.redirect('/');
+};
+
+/**
+ * 个人中心
+ */
+exports.userCenter = function (req, res) {
+	var _data = {
+		success: req.flash('success').toString(),
+		error: req.flash('error').toString()
+	}
+	if(!req.params.id) {
+		if(req.session.user) {
+			_data.user = req.session.user;
+			res.render('user/user_center', _data);
+		} else {
+			res.redirect('/login');
+		}
+	}
+	User.get({_id: req.params.id}, function (err, user) {
+		if(!user) {
+			_data.error = '用户不存在！';
+			_data.user = null;
+			res.render('user/user_center', _data);
+		}
+		_data.user = user;
+		res.render('user/user_center', _data);
+	});
 };

@@ -23,8 +23,10 @@ exports.index = function (req, res) {
 				mongodb.close();
 				for(var i=0, j=items.length; i<j; i++) {
 					var user = JSON.parse(items[i].session).user;
-					user.sessionid = items[i]._id;
-					_index.users.push(user);
+					if(user) {
+						user.sessionid = items[i]._id;
+						_index.users.push(user);
+					}
 				}
 				console.log(_index.users);
 				res.render('index', _index);
