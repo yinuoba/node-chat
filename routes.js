@@ -17,21 +17,25 @@ module.exports = function(app) {
 	/**
 	 * 注册
 	 */
+	app.get('/reg', checkNotLogin);
 	app.get('/reg', user.reg);
 	
 	/**
 	 * 注册请求
 	 */
+	app.post('/reg', checkNotLogin);
 	app.post('/reg', user.reg);
 	
 	/**
 	 * 登录
 	 */
+	app.get('/login', checkNotLogin);
 	app.get('/login', user.login);
 	
 	/**
 	 * 登录请求
 	 */
+	app.post('/login', checkNotLogin);
 	app.post('/login', user.login);
 	
 	/**
@@ -55,4 +59,23 @@ module.exports = function(app) {
 	 */
 	app.get('/check', check.index);
 	app.get('/message', message.index);
+	
+	/**
+	
+	*/
+	function checkLogin(req, res, next) {
+		if (!req.session.user) {
+			req.flash('error', '未登录!'); 
+			res.redirect('/login');
+		}
+		next();
+	}
+
+	function checkNotLogin(req, res, next) {
+		if (req.session.user) {
+			req.flash('error', '已登录!'); 
+			res.redirect('back');
+		}
+		next();
+	}
 };
