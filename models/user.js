@@ -50,13 +50,13 @@ User.get = function (name, callback) {
 		if(err) return callback(err);
 		
 		// 读取 users
-		db.collection('users', function(err, collection) {
+		db.collection('users', function (err, collection) {
 			if(err) {
 				mongodb.close();
 				return callback(err);
 			}
 			
-			collection.findOne({name: name}, function(err, user) {
+			collection.findOne({name: name}, function (err, user) {
 				mongodb.close();
 				if(err) return callback(err);
 				

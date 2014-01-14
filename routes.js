@@ -5,19 +5,14 @@
 var check = require('./controllers/check');
 var message = require('./controllers/message');
 var user = require('./controllers/user');
+var site = require('./controllers/site');
+
 
 module.exports = function(app) {
 	/**
 	 * 首页
 	 */
-	app.get('/', function (req, res) {
-		res.render('index', {
-			title: '即时聊天 - 首页',
-			user: req.session.user,
-			success: req.flash('success').toString(),
-			error: req.flash('error').toString()
-		});
-	});
+	app.get('/', site.index);
 
 	/**
 	 * 注册

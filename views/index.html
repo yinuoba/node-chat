@@ -14,5 +14,15 @@
 			<a href="/reg" title="注册">注册</a>
 			<a href="/login" title="登录">登录</a>
 		<% } %>
+		
+		
+		<% if (users.length) { %>
+			<h2>当前登录用户：</h2>
+			<ul>
+			<% users.forEach(function(v, i) {%>
+				<li><a sessionid="<%= v.sessionid %>" href="/u/<%= v._id %>" title="<%= v.name %>"><%= v.name %></a></li>
+			<% }) %>
+			</ul>
+		<% } %>
   </body>
 </html>
