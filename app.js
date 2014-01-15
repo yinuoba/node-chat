@@ -14,7 +14,9 @@ var fs = require('fs');
 var app = express();
 
 var server = require('http').createServer(app);
+
 var io = require('socket.io').listen(server);
+var socket = require('./websocket/socket');
 
 var config = require('./config')[ENVIROMENT];
 
@@ -54,17 +56,8 @@ app.use(app.router);
 var routes = require('./routes');
 routes(app);
 
-// 配置socket.io
-io.configure(ENVIROMENT, function(){
-  config.socketSetting(io);
-});
-
-io.sockets.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
-    logger.info(data);
-  });
-});
+// 启动socket服务
+socket(io, config);
 
 server.listen(app.get('port'), function(){
 	logger.info('Express server listening on port ' + app.get('port'));
