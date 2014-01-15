@@ -11,9 +11,10 @@
 						<h2 style="font-size:22px;">当前登录用户：</h2>
 						<div class="list-group">
 						<% users.forEach(function(v, i) {%>
-							<a class="list-group-item" style="overflow:hidden;" sessionid="<%= v.sessionid %>" href="/u/<%= v._id %>" title="<%= v.name %>">
-								<img src="#" class="pull-left" width="32" height="32" alt="" style="margin-right:12px;">
+							<a class="list-group-item<% if (i === 1) { %> active<% }%>" style="overflow:hidden;" sessionid="<%= v.sessionid %>" href="/u/<%= v._id %>" title="<%= v.name %>">
+								<img src="/images/avatar.png" class="pull-left" width="32" height="32" alt="" style="margin-right:12px;">
 								<h4 class="list-group-item-heading"><%= v.name %></h4>
+								<span class="badge pull-right">42</span>
 							</a>
 						<% }) %>
 						</div>
@@ -24,11 +25,11 @@
 						<div class="panel-heading">
 							<h3 class="panel-title">正在与 <strong>veian</strong> 聊天</h3>
 						</div>
-						<div class="panel-body">
+						<div class="panel-body" style="height:320px;">
 							<ul class="media-list">
 								<li class="media">
 									<a class="pull-left" href="#">
-										<img class="media-object" data-src="holder.js/32x32" alt="32x32" style="width: 32px; height: 32px;" src="#">
+										<img class="media-object" data-src="holder.js/32x32" alt="32x32" style="width: 32px; height: 32px;" src="/images/avatar.png">
 									</a>
 									<div class="media-body">
 										<p>你好啊！</p>
@@ -36,9 +37,9 @@
 								</li>
 								<li class="media">
 									<a class="pull-right" href="#">
-										<img class="media-object" data-src="holder.js/32x32" alt="32x32" style="width: 32px; height: 32px;" src="#">
+										<img class="media-object" data-src="holder.js/32x32" alt="32x32" style="width: 32px; height: 32px;" src="/images/avatar.png">
 									</a>
-									<div class="media-body">
+									<div class="media-body" style="text-align:right;">
 										<p>你好啊！</p>
 									</div>
 								</li>
@@ -46,8 +47,8 @@
 						</div>
 						<div class="panel-footer">
 							<form action="/" role="form" class="clearfix">
-								<textarea class="form-control" rows="3"></textarea>
-								<button type="submit" class="btn btn-primary btn-lg pull-right" style="margin-top:20px;">Large button</button>
+								<textarea class="form-control" rows="3" placeholder="说些什么"></textarea>
+								<button type="submit" class="btn btn-primary btn-lg pull-right" style="margin-top:20px;">发　送</button>
 							</form>
 						</div>
 					</div>
