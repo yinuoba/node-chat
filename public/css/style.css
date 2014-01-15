@@ -1,0 +1,31 @@
+.input-lg {
+  border-radius: 2px; }
+
+.index .nav-title {
+  font-size: 22px; }
+.index .list-group .list-group-item {
+  position: relative;
+  overflow: hidden; }
+  .index .list-group .list-group-item.active {
+    padding-left: 12px; }
+  .index .list-group .list-group-item h4 {
+    margin-left: 42px;
+    line-height: 32px; }
+  .index .list-group .list-group-item .badge {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    margin-top: -9px; }
+.index .panel-chat .panel-body {
+  height: 320px;
+  overflow-y: scroll; }
+  .index .panel-chat .panel-body .alert {
+    max-width: 320px; }
+  .index .panel-chat .panel-body .chat-left .alert-info {
+    float: left; }
+  .index .panel-chat .panel-body .chat-right .media-body {
+    text-align: right; }
+  .index .panel-chat .panel-body .chat-right .alert-success {
+    float: right; }
+.index .panel-chat .panel-footer .btn {
+  margin-top: 20px; }

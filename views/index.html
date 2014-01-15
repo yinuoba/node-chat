@@ -3,16 +3,16 @@
 	<% include ./_meta.html %>
 	<body>
 	<% include ./_header.html %>
-	<div class="container">
+	<div class="container index">
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
 				<div class="col-md-4">
 					<% if (users.length) { %>
-						<h2 style="font-size:22px;">当前登录用户：</h2>
+						<h2 class="nav-title">当前登录用户：</h2>
 						<div class="list-group">
 						<% users.forEach(function(v, i) {%>
-							<a class="list-group-item<% if (i === 1) { %> active<% }%>" style="overflow:hidden;" sessionid="<%= v.sessionid %>" href="/u/<%= v._id %>" title="<%= v.name %>">
-								<img src="/images/avatar.png" class="pull-left" width="32" height="32" alt="" style="margin-right:12px;">
+							<a class="list-group-item<% if (i === 1) { %> active<% }%>" sessionid="<%= v.sessionid %>" href="/u/<%= v._id %>" title="<%= v.name %>">
+								<img src="/images/avatar.png" class="pull-left" width="32" height="32" alt="" />
 								<h4 class="list-group-item-heading"><%= v.name %></h4>
 								<span class="badge pull-right">42</span>
 							</a>
@@ -21,26 +21,58 @@
 					<% } %>
 				</div>
 				<div class="col-md-8">
-					<div class="panel panel-info">
+					<div class="panel panel-info panel-chat">
 						<div class="panel-heading">
 							<h3 class="panel-title">正在与 <strong>veian</strong> 聊天</h3>
 						</div>
-						<div class="panel-body" style="height:320px;">
+						<div class="panel-body">
 							<ul class="media-list">
-								<li class="media">
+								<li class="media chat-left">
 									<a class="pull-left" href="#">
-										<img class="media-object" data-src="holder.js/32x32" alt="32x32" style="width: 32px; height: 32px;" src="/images/avatar.png">
+										<img class="media-object" data-src="holder.js/32x32" alt="32x32" width="48" height="48" src="/images/avatar.png" />
 									</a>
 									<div class="media-body">
-										<p>你好啊！</p>
+										<p class="alert alert-info">你好啊！</p>
 									</div>
 								</li>
-								<li class="media">
+								<li class="media chat-right">
 									<a class="pull-right" href="#">
-										<img class="media-object" data-src="holder.js/32x32" alt="32x32" style="width: 32px; height: 32px;" src="/images/avatar.png">
+										<img class="media-object" data-src="holder.js/32x32" alt="32x32" width="48" height="48" src="/images/avatar.png" />
 									</a>
-									<div class="media-body" style="text-align:right;">
-										<p>你好啊！</p>
+									<div class="media-body">
+										<p class="alert alert-success">这是个极好极好的时代！</p>
+									</div>
+								</li>
+								<li class="media chat-left">
+									<a class="pull-left" href="#">
+										<img class="media-object" data-src="holder.js/32x32" alt="32x32" width="48" height="48" src="/images/avatar.png" />
+									</a>
+									<div class="media-body">
+										<p class="alert alert-info">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
+									</div>
+								</li>
+								<li class="media chat-right">
+									<a class="pull-right" href="#">
+										<img class="media-object" data-src="holder.js/32x32" alt="32x32" width="48" height="48" src="/images/avatar.png" />
+									</a>
+									<div class="media-body">
+										<p class="alert alert-success">你好啊！</p>
+									</div>
+								</li>
+								<li class="media chat-left">
+									<a class="pull-left" href="#">
+										<img class="media-object" data-src="holder.js/32x32" alt="32x32" width="48" height="48" src="/images/avatar.png" />
+									</a>
+									<div class="media-body">
+										<p class="alert alert-info">你好啊！</p>
+									</div>
+								</li>
+								<li class="media chat-right">
+									<a class="pull-right" href="#">
+										<img class="media-object" data-src="holder.js/32x32" alt="32x32" width="48" height="48" src="/images/avatar.png" />
+									</a>
+									<div class="media-body">
+										<p class="alert alert-success">你好啊！</p>
 									</div>
 								</li>
 							</ul>
@@ -48,7 +80,7 @@
 						<div class="panel-footer">
 							<form action="/" role="form" class="clearfix">
 								<textarea class="form-control" rows="3" placeholder="说些什么"></textarea>
-								<button type="submit" class="btn btn-primary btn-lg pull-right" style="margin-top:20px;">发　送</button>
+								<button type="submit" class="btn btn-primary btn-lg pull-right">发　送</button>
 							</form>
 						</div>
 					</div>

@@ -1,0 +1,59 @@
+.input-lg{
+	border-radius:2px;
+}
+// 首页
+.index{
+	.nav-title{
+		font-size:22px;
+	}
+	.list-group{
+		.list-group-item{
+			position:relative;
+			overflow:hidden;
+			
+			&.active{
+				padding-left:12px;
+			}
+			img{
+			}
+			h4{
+				margin-left:42px;
+				line-height:32px;
+			}
+			.badge{
+				position:absolute;
+				top:50%;
+				right:10px;
+				margin-top:-9px;
+			}
+		}
+	}
+	.panel-chat{
+		.panel-body{
+			height:320px;
+			overflow-y:scroll;
+			
+			.alert{
+				max-width:320px;
+			}
+			.chat-left{
+				.alert-info{
+					float:left;
+				}
+			}
+			.chat-right{
+				.media-body{
+					text-align:right;
+				}
+				.alert-success{
+					float:right;
+				}
+			}
+		}
+		.panel-footer{
+			.btn{
+				margin-top:20px;
+			}
+		}
+	}
+}
