@@ -5,17 +5,54 @@
 	<% include ./_header.html %>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4">
-				<% if (users.length) { %>
-					<h2>当前登录用户：</h2>
-					<ul>
-					<% users.forEach(function(v, i) {%>
-						<li><a sessionid="<%= v.sessionid %>" href="/u/<%= v._id %>" title="<%= v.name %>"><%= v.name %></a></li>
-					<% }) %>
-					</ul>
-				<% } %>
+			<div class="col-md-10 col-md-offset-1">
+				<div class="col-md-4">
+					<% if (users.length) { %>
+						<h2 style="font-size:22px;">当前登录用户：</h2>
+						<div class="list-group">
+						<% users.forEach(function(v, i) {%>
+							<a class="list-group-item" style="overflow:hidden;" sessionid="<%= v.sessionid %>" href="/u/<%= v._id %>" title="<%= v.name %>">
+								<img src="#" class="pull-left" width="32" height="32" alt="" style="margin-right:12px;">
+								<h4 class="list-group-item-heading"><%= v.name %></h4>
+							</a>
+						<% }) %>
+						</div>
+					<% } %>
+				</div>
+				<div class="col-md-8">
+					<div class="panel panel-info">
+						<div class="panel-heading">
+							<h3 class="panel-title">正在与 <strong>veian</strong> 聊天</h3>
+						</div>
+						<div class="panel-body">
+							<ul class="media-list">
+								<li class="media">
+									<a class="pull-left" href="#">
+										<img class="media-object" data-src="holder.js/32x32" alt="32x32" style="width: 32px; height: 32px;" src="#">
+									</a>
+									<div class="media-body">
+										<p>你好啊！</p>
+									</div>
+								</li>
+								<li class="media">
+									<a class="pull-right" href="#">
+										<img class="media-object" data-src="holder.js/32x32" alt="32x32" style="width: 32px; height: 32px;" src="#">
+									</a>
+									<div class="media-body">
+										<p>你好啊！</p>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="panel-footer">
+							<form action="/" role="form" class="clearfix">
+								<textarea class="form-control" rows="3"></textarea>
+								<button type="submit" class="btn btn-primary btn-lg pull-right" style="margin-top:20px;">Large button</button>
+							</form>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="col-md-8">.col-md-8</div>
 		</div>
 	</div>
 	<% include ./_footer.html %>
