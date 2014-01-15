@@ -11,7 +11,7 @@
 						<h2 class="nav-title">当前登录用户：</h2>
 						<div class="list-group">
 						<% users.forEach(function(v, i) {%>
-							<a class="list-group-item<% if (i === 1) { %> active<% }%>" sessionid="<%= v.sessionid %>" href="/u/<%= v._id %>" title="<%= v.name %>">
+							<a class="list-group-item<% if (i === 1) { %> active<% }%>" href="/u/<%= v._id %>" title="<%= v.name %>">
 								<img src="/images/avatar.png" class="pull-left" width="32" height="32" alt="" />
 								<h4 class="list-group-item-heading"><%= v.name %></h4>
 								<span class="badge pull-right">42</span>
