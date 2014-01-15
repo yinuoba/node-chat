@@ -1,0 +1,28 @@
+	<!-- Fixed toolbar -->
+	<div class="navbar navbar-toolbar navbar-default" role="navigation">
+		<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">Node-CHAT</a>
+		</div>
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">首页</a></li>
+			</ul>
+			<div class="nav navbar-nav navbar-right">
+				<% if(user) { %>
+					<span><%= user.name %></span>
+					<a href="/logout" class="btn btn-success" title="退出登录">退出登录</a>
+				<% } else { %>
+					<a href="/login" class="btn btn-primary" title="登录">登录</a>
+					<a href="/reg" class="btn btn-danger" title="注册">注册</a>
+				<% } %>
+			</div>
+		</div>
+		</div>
+	</div>

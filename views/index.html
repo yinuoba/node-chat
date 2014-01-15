@@ -1,28 +1,23 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>这是首页</title>
-		<link rel='stylesheet' href='/stylesheets/style.css' />
-	</head>
+	<% include ./_meta.html %>
 	<body>
-		<h1>这是首页</h1>
-		<p>Welcome to 这是首页</p>
-		<% if(user) { %>
-			<span><%= user.name %></span>
-			<a href="/logout" title="退出登录">退出登录</a>
-		<% } else { %>
-			<a href="/reg" title="注册">注册</a>
-			<a href="/login" title="登录">登录</a>
-		<% } %>
-		
-		
-		<% if (users.length) { %>
-			<h2>当前登录用户：</h2>
-			<ul>
-			<% users.forEach(function(v, i) {%>
-				<li><a sessionid="<%= v.sessionid %>" href="/u/<%= v._id %>" title="<%= v.name %>"><%= v.name %></a></li>
-			<% }) %>
-			</ul>
-		<% } %>
+	<% include ./_header.html %>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<% if (users.length) { %>
+					<h2>当前登录用户：</h2>
+					<ul>
+					<% users.forEach(function(v, i) {%>
+						<li><a sessionid="<%= v.sessionid %>" href="/u/<%= v._id %>" title="<%= v.name %>"><%= v.name %></a></li>
+					<% }) %>
+					</ul>
+				<% } %>
+			</div>
+			<div class="col-md-8">.col-md-8</div>
+		</div>
+	</div>
+	<% include ./_footer.html %>
   </body>
 </html>
