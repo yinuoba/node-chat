@@ -10,8 +10,6 @@ exports.index = function(req, res){
   if(!data.userid){
     logger.error('error: 缺少参数!');
   }else{
-    ~function(data){
-    	logger.info(data);
-    }(data);
+    logger.info(data);
   }
 }
